@@ -1,0 +1,22 @@
+[user]
+  name = "Luke Kingland"
+  email = "luke@lukekingland.com"
+  signingkey = "10467CF71F3F1E12"
+
+[commit]
+  gpgsign = true
+
+[push]
+  followTags = true
+
+[tag]
+  sort = version:refname
+
+[pull]
+  rebase = false
+
+[init]
+  defaultBranch = main
+
+
+  

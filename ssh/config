@@ -1,0 +1,10 @@
+ServerAliveInterval 30
+
+Host cumulus
+  # Obtained with gpgconf --list-dirs agent-socket (remote)
+  #           and gpgconf --list-dirs agent-extra-socket (local)
+  RemoteForward /run/user/1001/gnupg/S.gpg-agent /run/user/1001/gnupg/S.gpg-agent.extra
+
+  # IdentitiesOnly yes
+  # IdentityFile ~/.ssh/id_ed25519_lkingland.pub
+

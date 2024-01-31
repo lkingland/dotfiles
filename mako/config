@@ -1,0 +1,12 @@
+# See man 5 mako
+max-history=15
+on-button-middle=exec makoctl menu -n "$id" rofi -p 'Select Action: '
+on-notify=exec mpv /usr/xdg-sound-theme/stereo/message.oga
+background-color=#19731C99
+text-color=#FFFFFFFF
+border-size=1
+border-color=#39A52CFF
+border-radius=3
+
+
+

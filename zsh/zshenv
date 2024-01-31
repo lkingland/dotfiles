@@ -1,0 +1,27 @@
+export PATH=~/bin:~/sh:$PATH
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+export EDITOR="nvim"
+export KUBE_EDITOR="nvim"
+export VISUAL="nvim"
+
+export HISTFILE="$ZDOTDIR/.zhistory"
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+export GOPATH=~
+
+export LC_CTYPE="en_US.UTF-8" # or mosh fails
+export LESS="-R --no-init --quit-if-one-screen" # or git config --global pager.branch false
+
+# Functions
+# ---------
+export GOPRIVATE="$GOPRIVATE,github.com/lkingland/dnsd"
+export GOPRIVATE="$GOPRIVATE,knative.dev/func-go"
+
+export FUNC_ENABLE_HOST_BUILDER=true
+
+

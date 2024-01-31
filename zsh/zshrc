@@ -1,0 +1,146 @@
+# -------------------------
+# Aliases
+# -------------------------
+
+alias c=clear
+alias d='dirs -v'
+alias e=exit
+alias f=func
+alias k=kubectl
+alias kpo="kubectl get po -A | sort"
+alias l='ls -GFhpg'
+alias le=less -FIRX
+alias ll='ls -GFlashp'
+alias o=popd
+alias p=pushd
+alias r=reset
+alias s='sudo '    # string format causes bash to continue evaluating aliases. e.g. "$ s sc status"
+alias v='nvim'
+alias vi='nvim'
+alias open='xdg-open'
+alias mime='xdg-mime'
+
+# Alias simple numbers to their position in the
+# directory stack
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# zsh-bd ("back up to directory")
+. $HOME/.config/zsh/plugins/bd/bd.zsh
+
+# TODO: is this needed for every git command above?
+
+# systemd
+alias sc="systemctl"
+alias scu="systemctl --user"
+alias jc="journalctl --output=cat"
+alias jcu="journalctl --output=cat --user"
+
+# git
+alias ga='git add'
+alias gb='git branch '
+alias gb='git branch'
+alias gba='git fetch -ap && git branch -a'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout '
+alias gd='git diff'
+alias gl='glog'
+alias gp='git pull'
+alias gr='git branch -r'
+alias gs='git status -sb'
+alias gt='git tag --sort=version:refname'
+alias gtd='git tag --delete'
+alias gu='git push'
+
+alias glo='git log --pretty="oneline"'
+alias glol='git log --graph --oneline --decorate'
+alias glog='git log --graph --pretty=format:'\''%Cgreen%h%Creset %an: %s %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'\'' --abbrev-commit --date=relative'
+
+# TODO: how to do this in zsh?
+# complete -cf k
+# complete -cf s     # Bash completion when using 's' sudo alias
+# complete -cf sudo  # Bash completion when using 'sudo'
+# complete -cf gco
+
+# -------------------------
+# Options
+# -------------------------
+setopt AUTO_PUSHD           # Push the current directory visited on the stack.
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt INC_APPEND_HISTORY   # Do not wait for shell exit
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+setopt SHARE_HISTORY
+setopt no_beep
+setopt HIST_REDUCE_BLANKS
+
+# -------------------------
+# Prompt
+# TODO: source whole repo to avoid symlink?
+# -------------------------
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+source $ZDOTDIR/.p10k.zsh
+source ~/src/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme
+
+# -------------------------
+# Autocomplete
+# -------------------------
+autoload -U compinit; compinit # load and invoke autocompletion
+_comp_options+=(globdots) # include hidden files
+source $ZDOTDIR/completion.zsh
+
+# -------------------------
+# Fuzzy-finder (fzf)
+# -------------------------
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
+# -------------------------
+# Vimification
+# -------------------------
+bindkey -v # Embedded VI keybindings
+export KEYTIMEOUT=1 # Switch between modes quickly
+
+# enable menuselect and map to VI keys
+zmodload zsh/complist 
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+autoload -Uz edit-command-line  # from zshcontrib
+zle -N edit-command-line  # ? normal mode?
+bindkey -M vicmd v edit-command-line # use 'v' to use editor
+
+# Enable Text Objects when in VI editing mode
+autoload -Uz select-bracketed select-quoted
+zle -N select-quoted
+zle -N select-bracketed
+for km in viopp visual; do
+  bindkey -M $km -- '-' vi-up-line-or-history
+  for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
+    bindkey -M $km $c select-quoted
+  done
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $km $c select-bracketed
+  done
+done
+
+# Mimic tpopt's 'surround'
+# cs - change surrounding
+# ds - delete surrounding
+# ys - yank surrounding
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -M vicmd cs change-surround
+bindkey -M vicmd ds delete-surround
+bindkey -M vicmd ys add-surround
+bindkey -M visual S add-surround
+

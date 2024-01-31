@@ -1,0 +1,85 @@
+-- [[ Configure Treesitter ]]
+-- Highlight, edit, and navigate code
+-- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
+-- See `:help nvim-treesitter`
+return {
+  'nvim-treesitter/nvim-treesitter',
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  build = ':TSUpdate',
+  config = function()
+    vim.defer_fn(function() -- defer for faster startup
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = { 
+          'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript',
+          'typescript', 'vimdoc', 'vim', 'bash', 'markdown', 'markdown_inline',
+        },
+        highlight = { enable = true },
+        indent = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<c-space>',
+            node_incremental = '<c-space>',
+            scope_incremental = '<c-s>',
+            node_decremental = '<M-space>',
+          },
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+            keymaps = {
+              -- You can use the capture groups defined in textobjects.scm
+              ['aa'] = '@parameter.outer',
+              ['ac'] = '@class.outer',
+              ['af'] = '@function.outer',
+              ['ai'] = '@conditional.outer',
+              ['al'] = '@loop.outer',
+              ['at'] = '@comment.outer',
+              ['ia'] = '@parameter.inner',
+              ['ic'] = '@class.inner',
+              ['if'] = '@function.inner',
+              ['ii'] = '@conditional.inner',
+              ['il'] = '@loop.inner',
+            },
+          },
+          move = {
+            enable = false,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+              [']m'] = '@function.outer',
+              [']]'] = '@class.outer',
+            },
+            goto_next_end = {
+              [']M'] = '@function.outer',
+              [']['] = '@class.outer',
+            },
+            goto_previous_start = {
+              ['[m'] = '@function.outer',
+              ['[['] = '@class.outer',
+            },
+            goto_previous_end = {
+              ['[M'] = '@function.outer',
+              ['[]'] = '@class.outer',
+            },
+          },
+          swap = {
+            enable = true,
+            swap_next = {
+              ['<leader>a'] = '@parameter.inner',
+            },
+            swap_previous = {
+              ['<leader>A'] = '@parameter.inner',
+            },
+          },
+        },
+      }
+    end, 0)
+
+  end,
+}
+
+-- vim: ts=2 sts=2 sw=2 et
+

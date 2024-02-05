@@ -8,11 +8,11 @@ return {
       [",r"] = { ":GoRun<cr>", "[r]un" },
 
       [",c"] = { name = "+coverage" },
-      [",ci"] = { ":GoCoverageToggle<cr>", "[c]overage [i]nline" },
-      [",cb"] = { ":GoCoverageBrowser<cr>", "[c]overage in [b]rowser" },
+      [",cc"] = { ":GoCoverageToggle<cr>", "[c]overage toggle" },
+      [",cb"] = { ":GoCoverageBrowser<cr>", "[b]rowse coverage" },
 
       [",t"] = { name = "+test" },
-      [",tr"] = { ":GoTest<cr>", "[r]un" },
+      [",tt"] = { ":GoTest<cr>", "[t]est all" },
       [",tf"] = { ":GoTestFunc<cr>", "this [f]unction" },
       [",ti"] = { ":GoTestFile<cr>", "this f[i]le" },
       [",tc"] = { ":GoTestCompile<cr>", "test [c]ompile" },

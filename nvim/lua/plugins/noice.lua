@@ -10,6 +10,9 @@ return {
     vim.keymap.set("n", "<leader>nn", ":NoiceDismiss<cr>", {noremap=true})
 
     require("noice").setup {
+      messages = {
+        view = "mini"
+      },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins
         -- use Treesitter

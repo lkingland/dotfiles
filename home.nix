@@ -37,8 +37,10 @@
     ".config/git/config".source = git/config;
 
     ".config/hypr/hyprland.conf".source = hypr/hyprland.conf;
+    ".config/hypr/monitors.ng.sh".source = hypr/monitors.ng.sh;
+    ".config/hypr/monitors.sh".source = hypr/monitors.sh;
     ".config/hypr/start.sh".source = hypr/start.sh;
-    ".config/hypr/workspace.sh".source = hypr/workspace.sh;
+    ".config/hypr/suspend.sh".source = hypr/suspend.sh;
 
     ".config/kitty/kitty.conf".source = kitty/kitty.conf;
 

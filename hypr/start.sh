@@ -2,6 +2,6 @@
 
 set +x
 
-echo "Starting workspace watcher"
-~/.config/hypr/workspace.sh
+echo "Starting monitor workspace watcher"
+~/.config/hypr/monitors.ng.sh
 

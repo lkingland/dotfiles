@@ -23,9 +23,11 @@ vim.keymap.set("n", "td", ":bdelete<enter>", { noremap=false })
 vim.keymap.set('n', '<space><space>', ":set nohlsearch<CR>")
 vim.keymap.set("n", "<Esc>", ":NoiceDismiss<cr>:noh<cr>", {noremap=true})
 
--- Number Toggles
-vim.keymap.set('n', '<leader>tn', ":set number!<cr>")
-vim.keymap.set('n', '<leader>tr', ":set relativenumber!<cr>")
+-- Toggles
+vim.keymap.set('n', '<leader>tn', ":set number!<cr>", { desc = "Line [n]umbers" } ) 
+vim.keymap.set('n', '<leader>tr', ":set relativenumber!<cr>", { desc = "[r]elative line numbering" } )
+vim.keymap.set('n', '<leader>tl', ":set wrap!<cr>", { desc = "[l]ine wrapping" } )
+vim.keymap.set('n', '<leader>th', ":set list!<cr>", { desc = "Toggle [h]idden characters (list)" } )
 
 -- Resize splits using Control+Arrow keys
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { noremap=true })

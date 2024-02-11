@@ -13,6 +13,7 @@ return {
     vim.keymap.set('n', '<leader>ol', ':ObsidianLink<cr>', { desc = '[l]ink selection to X' } )
     vim.keymap.set('n', '<leader>oc', ':ObsidianLinkNew<cr>', { desc = '[c]reate X and link selection' } )
     vim.keymap.set('n', '<leader>ot', ':ObsidianToday<cr>', { desc = '[t]oday\'s daily note' } )
+    vim.keymap.set('n', '<leader>of', ':ObsidianFollowLink<cr>', { desc = '[f]ollow link' } )
 
     vim.keymap.set('n', 'gf', function()
       if require('obsidian').util.cursor_on_markdown_link() then

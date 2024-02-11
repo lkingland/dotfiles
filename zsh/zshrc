@@ -20,6 +20,12 @@ alias vi='nvim'
 alias open='xdg-open'
 alias mime='xdg-mime'
 
+# Bitwarden Unlock:  populates ~/.bw-session
+# bw lock is called on system lock.
+alias bwu='bw unlock --raw > ~/.bw-session'
+# Bitwarden Get Password X:
+alias bwg='bw get password --session=$(<~/.bw-session)'
+
 # Alias simple numbers to their position in the
 # directory stack
 for index ({1..9}) alias "$index"="cd +${index}"; unset index

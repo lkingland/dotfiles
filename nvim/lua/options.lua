@@ -50,8 +50,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Remove trailing blankline character
 vim.opt.fillchars    = { eob = " " } 
 
-vim.opt.wrap = false
-vim.opt.list = true
+vim.opt.wrap = false -- toggle linewrap with <leader>tl
+vim.opt.list = false -- toggle hidden characters with <leader>th 
 vim.opt.listchars:append("extends:➔")
 
 -- TODO

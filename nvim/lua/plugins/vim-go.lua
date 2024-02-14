@@ -4,7 +4,7 @@ return {
     require("which-key").register({
       [","] = { name = "+code" },
       [",s"] = { ":GoAlternate<cr>", "[s]witch to alternate" },
-      [",b"] = { ":GoBuild<cr>", "[b]uild" },
+      [",b"] = { ":w<bar>GoBuild<cr>", "[b]uild" },
       [",r"] = { ":GoRun<cr>", "[r]un" },
 
       [",c"] = { name = "+coverage" },

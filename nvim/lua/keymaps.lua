@@ -29,6 +29,11 @@ vim.keymap.set('n', '<leader>tr', ":set relativenumber!<cr>", { desc = "[r]elati
 vim.keymap.set('n', '<leader>tl', ":set wrap!<cr>", { desc = "[l]ine wrapping" } )
 vim.keymap.set('n', '<leader>th', ":set list!<cr>", { desc = "Toggle [h]idden characters (list)" } )
 
+-- Quickly go to the quickfix window, previous window
+-- see also nvim-tree mappings
+vim.keymap.set('n', '<C-i>', ":copen<cr>", { desc = "focus qu[i]ckfix window", noremap=true } )
+vim.keymap.set('n', '<C-o>', ":wincmd p<cr>", { desc = "t[o]ggle previous window", noremap=true } )
+
 -- Resize splits using Control+Arrow keys
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { noremap=true })
 vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { noremap=true })

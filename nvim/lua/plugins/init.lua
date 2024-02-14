@@ -1,5 +1,4 @@
 return {
-  { 'numToStr/FTerm.nvim' },              -- floating terminal
   { 'onsails/lspkind.nvim' },             -- LSP icons
   { 'tpope/vim-rhubarb' },                -- GitHub integration
   { 'tpope/vim-sleuth' },                 -- Auto tabstop etc

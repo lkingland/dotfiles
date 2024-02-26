@@ -1,26 +1,31 @@
 return {
     "mfussenegger/nvim-dap",
   config = function() 
-    -- see also dap-go.lua
-    vim.keymap.set("n", ",db", ":DapToggleBreakpoint<cr>", {desc="[b]reakpoint"})
-    vim.keymap.set("n", ",dc", ":DapContinue<cr>", {desc="[c]ontinue"})
-    vim.keymap.set("n", ",di", ":DapStepInto<cr>", {desc="[i]nto"})
-    vim.keymap.set("n", ",do", ":DapStepOver<cr>", {desc="[o]ver"})
-    vim.keymap.set("n", ",dr", ":DapToggleRepl<cr>", {desc="[r]epl"})
-    vim.keymap.set("n", ",du", ":DapStepOut<cr>", {desc="[u]p / out"})
-    vim.keymap.set("n", ",dx", ":DapTerminate<cr>", {desc="[x]terminate"})
+    -- see also: 
+    --   dap-go.lua
+    --   :help dap-mapping
+    --   :help dap-api
+    --   :help dap-widgets
+    vim.keymap.set("n", ",dc", function() require('dap').continue() end, {desc="[c]ontinue"})
+    vim.keymap.set("n", ",do", function() require('dap').step_over() end, {desc="[o]ver"})
+    vim.keymap.set("n", ",di", function() require('dap').step_into() end, {desc="[i]nto"})
+    vim.keymap.set("n", ",du", function() require('dap').step_out() end, {desc="[u]p / out"})
+    vim.keymap.set("n", ",db", function() require('dap').toggle_breakpoint() end, {desc="[b]reakpoint"})
+    vim.keymap.set("n", ",dr", function() require('dap').repl.open() end, {desc="[r]epl"})
+    vim.keymap.set("n", ",dx", function() require('dap').terminate() end, {desc="[x]it (terminate)"})
+    vim.keymap.set("n", ",dl", function() require('dap').run_last() end, {desc="[l]ast (rerun)"})
 
     -- Sidebars
-    vim.keymap.set("n", ",dl", function()
+    vim.keymap.set("n", ",ds", function()
         local widgets = require("dap.ui.widgets");
         local sidebar = widgets.sidebar(widgets.scopes);
         sidebar.toggle();
-    end, {desc="[l]ocals (scopes)"})
-    vim.keymap.set("n", ",ds", function()
+    end, {desc="show [s]copes (locals)"})
+    vim.keymap.set("n", ",df", function()
         local widgets = require("dap.ui.widgets");
         local sidebar = widgets.sidebar(widgets.frames);
         sidebar.toggle();
-    end, {desc="[s]tack (frames)"})
+    end, {desc="show [f]rames (stack)"})
 
 
     -- Signs

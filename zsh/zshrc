@@ -30,7 +30,9 @@ alias bwg='bw get password --session=$(<~/.bw-session)'
 # directory stack
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
-# zsh-bd ("back up to directory")
+# zsh-bd
+# "back up to directory"
+# Functionality may be subsumed by zoxide (under eval)
 . $HOME/.config/zsh/plugins/bd/bd.zsh
 
 # TODO: is this needed for every git command above?
@@ -51,6 +53,7 @@ alias gca='git commit -a'
 alias gco='git checkout '
 alias gd='git diff'
 alias gl='glog'
+alias gll='glog -n 10'
 alias gp='git pull'
 alias gr='git branch -r'
 alias gs='git status -sb'
@@ -149,4 +152,15 @@ bindkey -M vicmd cs change-surround
 bindkey -M vicmd ds delete-surround
 bindkey -M vicmd ys add-surround
 bindkey -M visual S add-surround
+
+# zoxide
+# "smarter cd"
+# Docs say do this:
+# eval "$(zoxide init zsh)"
+# Nope.
+# Istead:  "zoxide init --cmd cd zsh > ~/dotfiles/zsh/zoxide.zsh"
+# This config is then included in home manager (see home.nix)
+# And sourced here instead.
+. $HOME/.config/zsh/zoxide.zsh
+
 

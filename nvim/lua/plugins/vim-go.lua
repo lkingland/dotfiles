@@ -12,15 +12,15 @@ return {
       [",cb"] = { ":GoCoverageBrowser<cr>", "[b]rowse coverage" },
 
       [",t"] = { name = "+test" },
-      [",tt"] = { ":GoTest<cr>", "[t]est all" },
-      [",tf"] = { ":GoTestFunc<cr>", "this [f]unction" },
-      [",ti"] = { ":GoTestFile<cr>", "this f[i]le" },
-      [",tc"] = { ":GoTestCompile<cr>", "test [c]ompile" },
-      [",tm"] = { ":GoMetaLinter<cr>", "[m]etalinter" },
+      [",tt"] = { ":w<bar>:GoTest<cr>", "[t]est all" },
+      [",tf"] = { ":w<bar>:GoTestFunc<cr>", "this [f]unction" },
+      [",ti"] = { ":w<bar>:GoTestFile<cr>", "this f[i]le" },
+      [",tc"] = { ":w<bar>:GoTestCompile<cr>", "test [c]ompile" },
+      [",tm"] = { ":w<bar>:GoMetaLinter<cr>", "[m]etalinter" },
 
-      [",d"] = { name = "+docs" },
-      [",di"] = { ":GoDoc<cr>", "[d]ocs [i]nline" },
-      [",db"] = { ":GoDocBrowser<cr>", "[d]ocs in [b]rowser" },
+      [",x"] = { name = "+docs" },
+      [",xi"] = { ":GoDoc<cr>", "[i]nline docs" },
+      [",xb"] = { ":GoDocBrowser<cr>", "[b]rowser docs" },
 
     })
   end,

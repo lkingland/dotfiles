@@ -70,6 +70,7 @@
     ".config/zsh/completion.zsh".source = zsh/completion.zsh;
     ".config/zsh/.p10k.zsh".source = zsh/p10k.zsh;
     ".config/zsh/plugins".source = ./zsh/plugins;
+    ".config/zsh/zoxide.zsh".source = zsh/zoxide.zsh;
 
     ".config/tmux/tmux.conf".source = tmux/tmux.conf;
 

@@ -52,7 +52,6 @@ return {
 
   -- Configure
   config = function()
-
     -- TODO: Move this to which-key config?  Seems more like a root-level
     -- index of groupings than LSP-specific:
     require('which-key').register {
@@ -65,6 +64,21 @@ return {
       ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
       ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
     }
+
+    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } 
+    for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
+    end
+
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = false,
+        signs = true,
+        virtual_text = false, 
+        -- update_in_insert = false,
+      }
+    )
 
     -- TODO: Remove?  Leaning on vim-fugitive for git-related stuffs.
     -- register which-key VISUAL mode

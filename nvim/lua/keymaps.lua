@@ -2,12 +2,13 @@
 -- General system keymaps.
 -- See plugin definitions for their relevant keys.
 
--- Remap common commands which require a bit of a reach
+-- Remap common commands which require a bit of a reach or excess keys
 vim.keymap.set("i", "jj", "<Esc>", { noremap=false })
 vim.keymap.set("n", "QQ", ":q!<enter>", { noremap=false })
 vim.keymap.set("n", "WW", ":w!<enter>", { noremap=false })
 vim.keymap.set("n", "E", "$", { noremap=false })
 vim.keymap.set("n", "B", "^", { noremap=false })
+vim.keymap.set('n', '<C-s>', ":w", { noremap=false } )
 
 -- Ensure space does not interfere with itself as the leader key
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true  })

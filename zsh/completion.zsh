@@ -13,7 +13,7 @@ bindkey -M menuselect '^xh' accept-and-hold                # Hold
 bindkey -M menuselect '^xn' accept-and-infer-next-history  # Next
 bindkey -M menuselect '^xu' undo                           # Undo
 
-autoload -U compinit; compinit
+autoload -Uz compinit; compinit -C
 _comp_options+=(globdots) # With hidden files
 
 # Only work with the Zsh function vman

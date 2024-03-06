@@ -94,8 +94,8 @@ fi
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
-\builtin alias cd=__zoxide_z
-\builtin alias cdi=__zoxide_zi
+\builtin alias z=__zoxide_z
+\builtin alias zi=__zoxide_zi
 
 # =============================================================================
 #

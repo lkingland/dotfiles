@@ -6,7 +6,7 @@ vim.o.clipboard      = 'unnamedplus' -- Sync clipboard with OS
 vim.o.colorcolumn    = "80"  -- vertical bar at 80
 vim.o.completeopt    = 'menuone,noselect' -- bettter completion experience
 vim.o.conceallevel   = 2 -- Required by some plugins
-vim.o.hlsearch       = false -- Highlight on search
+vim.o.hlsearch       = true -- Highlight on search
 vim.o.ignorecase     = true -- Deafult to case insensitive searches
 vim.o.incsearch      = true -- Incremental Search
 vim.o.mouse          = 'a' -- Enable mouse
@@ -58,6 +58,10 @@ vim.opt.listchars:append("extends:➔")
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" ..
                     ",a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor" ..
                     ",sm:block-blinkwait175-blinkoff150-blinkon175"
+
+-- spelling
+vim.opt_local.spell = true
+vim.opt_local.spelllang = { "en_us" }
 
 -- TODO
 -- ---------------------

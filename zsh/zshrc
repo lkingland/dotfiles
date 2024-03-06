@@ -33,7 +33,7 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # zsh-bd
 # "back up to directory"
 # Functionality may be subsumed by zoxide (under eval)
-. $HOME/.config/zsh/plugins/bd/bd.zsh
+# . $HOME/.config/zsh/plugins/bd/bd.zsh
 
 # TODO: is this needed for every git command above?
 
@@ -95,13 +95,6 @@ source $ZDOTDIR/.p10k.zsh
 source ~/src/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme
 
 # -------------------------
-# Autocomplete
-# -------------------------
-autoload -U compinit; compinit # load and invoke autocompletion
-_comp_options+=(globdots) # include hidden files
-source $ZDOTDIR/completion.zsh
-
-# -------------------------
 # Fuzzy-finder (fzf)
 # -------------------------
 if [ -n "${commands[fzf-share]}" ]; then
@@ -140,7 +133,10 @@ for km in viopp visual; do
   done
 done
 
-# Mimic tpopt's 'surround'
+# --------------
+# Shell Surround
+# --------------
+# Mimics tpope's 'surround'
 # cs - change surrounding
 # ds - delete surrounding
 # ys - yank surrounding
@@ -153,14 +149,24 @@ bindkey -M vicmd ds delete-surround
 bindkey -M vicmd ys add-surround
 bindkey -M visual S add-surround
 
-# zoxide
-# "smarter cd"
+# -------------------------
+# Autocomplete
+# -------------------------
+# source $ZDOTDIR/completion.zsh # lots of autocomplete goodies
+# CD via zoxide
 # Docs say do this:
 # eval "$(zoxide init zsh)"
 # Nope.
 # Istead:  "zoxide init --cmd cd zsh > ~/dotfiles/zsh/zoxide.zsh"
 # This config is then included in home manager (see home.nix)
 # And sourced here instead.
+# Note that this appears to need to be after most of the other config but
+# before the autocomplete config
+# Enable
+# note the following must be after zoxide config is sourced or there are
+# duplicates.
+. $ZDOTDIR/completion.zsh # lots of autocomplete goodies
 . $HOME/.config/zsh/zoxide.zsh
+
 
 

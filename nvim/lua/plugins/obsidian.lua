@@ -34,7 +34,7 @@ return {
       workspaces = {
         {
           name = 'wiki',
-          path = '~/wiki',
+          path = '~/src/kingland.io/wiki',
         },
       },
       disable_frontmatter = true,

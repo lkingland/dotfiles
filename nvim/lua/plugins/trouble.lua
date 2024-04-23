@@ -59,19 +59,6 @@ return {
   --   use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
   -- },
   config = function()
-    vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end,
-      {desc = "[x] Toggle Trouble list"} )
-    vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end,
-      {desc = "[w]orkspace diagnostics"} )
-    vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end,
-      {desc = "[d]ocument diagnostics"} )
-    vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end,
-      {desc = "[q]uickfix"} )
-    vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end, 
-      {desc = "[l]oclist"} )
-    vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end,
-      {desc = "[r]eferences via LSP"} )
-
     require("trouble").setup({})
   end
 }

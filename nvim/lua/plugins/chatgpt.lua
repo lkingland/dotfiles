@@ -54,7 +54,7 @@ return {
         model = "gpt-4-1106-preview",
         -- frequency_penalty = 0,
         -- presence_penalty = 0,
-        max_tokens = 2000,
+        max_tokens = 4096,
         -- temperature = 0,
         -- top_p = 1,
         -- n = 1,
@@ -67,13 +67,6 @@ return {
         -- top_p = 1,
         -- n = 1,
       },
-      require("which-key").register({
-        [";"] = { name = "bot" },
-        [";c"] = { ":ChatGPT<cr>", "[c]hat", mode = { "n", "v" } },
-        [";a"] = { ":ChatGPTActAs<cr>", "[a]ct as...", mode = { "n", "v" } },
-        [";e"] = { ":ChatGPTEditWithInstructions<cr>", "[e]dit", mode = { "n", "v" } },
-        [";r"] = { ":ChatGPTRun<cr>", "[r]un", mode = { "n", "v" } },
-      })
     })
   end,
 }

@@ -7,8 +7,6 @@ return {
     "rcarriga/nvim-notify", -- only if using notificaiton view (mini) default
   },
   config = function() 
-    vim.keymap.set("n", "<leader>nn", ":NoiceDismiss<cr>", {noremap=true})
-
     require("noice").setup {
       messages = {
         view = "mini"

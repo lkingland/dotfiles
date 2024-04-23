@@ -13,9 +13,7 @@
   # --------
   programs.gpg.enable = true;
   programs.direnv.enable = true;
-  programs.firefox.enable = true;
-
-  # Services
+# Services
   # --------
   services.gpg-agent = {
     enable = true;
@@ -35,6 +33,7 @@
     ".config/foot/foot.ini".source = foot/foot.ini;
 
     ".config/git/config".source = git/config;
+    ".config/git/ignore".source = git/ignore;
 
     ".config/hypr/hyprland.conf".source = hypr/hyprland.conf;
     ".config/hypr/monitors.ng.sh".source = hypr/monitors.ng.sh;

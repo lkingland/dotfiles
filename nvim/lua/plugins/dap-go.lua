@@ -5,8 +5,8 @@ return {
   },
   config = function() 
     -- See also dap.lua
-    vim.keymap.set("n", ",dt", function() require("dap-go").debug_test() end, {desc="Debug [t]est"})
-    -- vim.keymap.set("n", ",dl", function() require("dap-go").debug_test() end, {desc="Debug [l]ast"})
+    vim.keymap.set("n", ",dt", function() require("dap-go").debug_test() end )
+    vim.keymap.set("n", ",dr", function() require("dap-go").debug_last_test() end)
 
     require("dap-go").setup()
   end,

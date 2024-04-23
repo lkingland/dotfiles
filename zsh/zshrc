@@ -18,6 +18,8 @@ alias s='sudo '    # string format causes bash to continue evaluating aliases. e
 alias v='nvim'
 alias vi='nvim'
 alias open='xdg-open'
+alias copy='wl-copy'
+alias paste='wl-paste'
 alias mime='xdg-mime'
 
 # Bitwarden Unlock:  populates ~/.bw-session

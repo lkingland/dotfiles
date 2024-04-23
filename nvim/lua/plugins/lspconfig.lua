@@ -52,18 +52,17 @@ return {
 
   -- Configure
   config = function()
-    -- TODO: Move this to which-key config?  Seems more like a root-level
-    -- index of groupings than LSP-specific:
-    require('which-key').register {
-      ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-      ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-    }
+    -- TODO: figure out why these all have "which_key_ignore set"
+    -- require('which-key').register {
+    --   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+    --   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+    --   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+    --   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+    --   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+    --   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+    --   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+    --   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+    -- }
 
     local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } 
     for type, icon in pairs(signs) do
@@ -91,7 +90,13 @@ return {
     -- Setup individual language servers using Mason
     local servers = {
       clangd = {},
-      gopls = {},
+      gopls = {
+        settings = {
+          gopls = {
+            buildFlags = { '-tags=e2e' }, 
+          },
+        },
+      },
       pyright = {},
       rust_analyzer = {},
       tsserver = {},

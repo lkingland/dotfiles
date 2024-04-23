@@ -9,7 +9,7 @@ return {
         y = 0.7,
       },
     })
-    vim.keymap.set("n", "<leader>tf", ":lua require('FTerm').toggle()<CR>", { desc="[f]loating terminal", noremap=true})
-    vim.keymap.set("t", "<leader>tf", '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { desc="[f]loating terminal", noremap=true})
+    -- TODO: Evaluate why this might be needed:
+    -- vim.keymap.set("t", "<leader>tf", '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { desc="[f]loating terminal", noremap=true})
   end,
 }

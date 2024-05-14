@@ -12,7 +12,7 @@ return {
 
     require("which-key").setup({})
     require("which-key").register({
-      -- General
+
       ["jj"]      = { "<Esc>", "Escape", mode = { "i" } },
       ["qq"]      = { ":q<cr>", "Quit" },
       ["QQ"]      = { ":q!<cr>", "Force quit"},
@@ -21,14 +21,7 @@ return {
       ["<C-s>"]   = { "<cmd>w<cr>", "Save", mode = { "i", "n", "v" } },
       ["<C-Tab>"] = {"<C-^>", "Toggle previous buffer", mode = { "i", "n", "v" } },
 
-      -- Buffers
-      ["bd"] = {":bdelete<enter>", "Buffer Delete"},
-      ["bf"] = {":bfirst<enter>", "Buffer First" },
-      ["bl"] = {":blast<enter>", "Buffer Last" },
-      ["bn"] = {":bnext<enter>", "Buffer Next" },
-      ["bp"] = {":bprev<enter>", "Buffer Previous" },
-
-      ["<space><space>"] = { ":set nohlsearch<CR>", "Clear highlights" },
+      ["<space><space>"] = { "<cmd>set nohlsearch<cr><cmd>NoiceDismiss<cr>", "Clear" },
 
       -- Panes
       ["<c-u>"] = { ":UndotreeToggle<cr>", "Toggle Undotree" },
@@ -42,23 +35,31 @@ return {
       -- NOTE: For reference: note the use of the buffer-selector API:
       -- vim.keymap.set('n', "<c-/>", function() require("nvim-tree.api").tree.toggle({buf = vim.api.nvim_buf_get_name(0), focus=false, update_root=true}) end, { desc = "Tree Toggle and Update Root" } )
     
+      -- Resize mappings:  not working?
       -- ["<c-h>"] = { function() vim.cmd("TmuxNavigateLeft") end, mode = { 'n', 'i' }},
       -- ["<c-j>"] = { function() vim.cmd("TmuxNavigateDown") end, mode = { 'n', 'i' }},
       -- ["<c-k>"] = { function() vim.cmd("TmuxNavigateUp") end, mode = { 'n', 'i' }},
       -- ["<c-l>"] = { function() vim.cmd("TmuxNavigateRight") end, mode = { 'n', 'i' }},
 
-      ["<C-Up>"]    = { ":resize +2<CR>" },
-      ["<C-Down>"]  = { ":resize -2<CR>" },
-      ["<C-Left>"]  = { ":vertical resize -2<CR>" },
-      ["<C-Right>"] = { ":vertical resize +2<CR>" },
+      -- ["<C-S-q>"]    = { ":resize +2<CR>", "resize +2" },
+      -- ["<C-S-w>"]  = { ":resize -2<CR>", "resize -2"},
+      -- ["<C-S-e>"]  = { ":vertical resize -2<CR>", "resize vertically -2" },
+      -- ["<C-S-r>"] = { ":vertical resize +2<CR>", "resize vertically +2" },
 
       -- Primary commands (Leader)
       ["<leader>"] = {
         a = {
           name = "+Aerial Code Navigator",
           a = {":Telescope aerial<cr>", "Aerial via Telescope"},
-          s = {":AerialToggle!<cr>", "Aerial side panel"},
-          n = {":AerialNavToggle<cr>", "Aerial navigation panel"},
+          n = {":AerialNavToggle<cr>", "Open Aerial Navigation panel"},
+          s = {":AerialToggle!<cr>", "Aerial Sidebar Toggle"},
+        },
+        b = {
+          d = {":bdelete<enter>", "Buffer Delete"},
+          f = {":bfirst<enter>", "Buffer First" },
+          l = {":blast<enter>", "Buffer Last" },
+          n = {":bnext<enter>", "Buffer Next" },
+          p = {":bprev<enter>", "Buffer Previous" },
         },
         g = {
           name = "+Git Hunks",
@@ -89,6 +90,7 @@ return {
         },
         t = {
           name = "+Toggles",
+          a = {":AerialToggle!<cr>", "Code N[a]vigator Sidebar (Aerial)"},
           f = { function() require('FTerm').toggle() end, "Floating Term" },
           h = {":set list!<cr>", "Toggle hidden characters"},
           i = {":IBLToggle<cr>", "Toggle Indentation Lines" },

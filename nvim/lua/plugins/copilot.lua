@@ -1,8 +1,11 @@
-return {
-    "github/copilot.vim",
-    dependencies = { 
-    },
-    config = function()
-      -- see :help copilot
-    end,
-}
+-- FFS, most annoying thing ever.
+-- TODO: Disable by default; enable with a keychord
+return {}
+-- return {
+--     "github/copilot.vim",
+--     dependencies = { 
+--     },
+--     config = function()
+--       -- see :help copilot
+--     end,
+-- }

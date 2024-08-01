@@ -97,7 +97,9 @@ return {
           },
         },
       },
-      pyright = {},
+      pyright = {
+
+      },
       rust_analyzer = {},
       tsserver = {},
       html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -110,6 +112,7 @@ return {
         },
       },
     }
+
     require('mason').setup()
     require('neodev').setup() -- Setup neovim lua configuration
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers

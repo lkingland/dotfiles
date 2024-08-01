@@ -64,7 +64,8 @@
 
     ".config/wezterm/wezterm.lua".source = wezterm/wezterm.lua;
 
-    ".zshenv".source = zsh/zshenv; # must be in home dir
+    # ".zshenv".source = zsh/zshenv; # must be in home dir
+    ".config/zsh/.zshenv".source = zsh/zshenv;
     ".config/zsh/.zshrc".source = zsh/zshrc;
     ".config/zsh/completion.zsh".source = zsh/completion.zsh;
     ".config/zsh/.p10k.zsh".source = zsh/p10k.zsh;

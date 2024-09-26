@@ -13,6 +13,7 @@ bindkey -M menuselect '^xh' accept-and-hold                # Hold
 bindkey -M menuselect '^xn' accept-and-infer-next-history  # Next
 bindkey -M menuselect '^xu' undo                           # Undo
 
+fpath+=~/.zfunc # load functions 
 autoload -Uz compinit; compinit -C
 _comp_options+=(globdots) # With hidden files
 

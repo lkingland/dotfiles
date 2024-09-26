@@ -59,13 +59,13 @@
     ".ssh/id_ed25519_drekar.pub".source = ssh/id_ed25519_drekar.pub;
     ".ssh/id_ed25519_lkingland.pub".source = ssh/id_ed25519_lkingland.pub;
 
-    ".config/waybar/config".source = waybar/config;
+    ".config/waybar/config.jsonc".source = waybar/config.jsonc;
     ".config/waybar/style.css".source = waybar/style.css;
 
     ".config/wezterm/wezterm.lua".source = wezterm/wezterm.lua;
 
-    # ".zshenv".source = zsh/zshenv; # must be in home dir
-    ".config/zsh/.zshenv".source = zsh/zshenv;
+    ".zshenv".source = zsh/zshenv; # must be in home dir
+    # ".config/zsh/.zshenv".source = zsh/zshenv;
     ".config/zsh/.zshrc".source = zsh/zshrc;
     ".config/zsh/completion.zsh".source = zsh/completion.zsh;
     ".config/zsh/.p10k.zsh".source = zsh/p10k.zsh;

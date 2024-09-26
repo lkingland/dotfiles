@@ -118,11 +118,12 @@ return {
         },
         x = {
           name = "Trouble",
-          x = { function() require("trouble").toggle() end, "[x] Toggle Trouble list"},
-          w = { function() require("trouble").toggle("workspace_diagnostics") end, "[w]orkspace diagnostics"},
-          d = { function() require("trouble").toggle("document_diagnostics") end, "[d]ocument diagnostics"},
-          q = { function() require("trouble").toggle("quickfix") end, "[q]uickfix"},
-          l = { function() require("trouble").toggle("loclist") end, "[l]oclist"},
+          x = { ":Trouble diagnostics toggle<cr>", "[x] Toggle Trouble list" },
+          X = { ":Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics" },
+          s = { ":Trouble symbols toggle focus=false<cr>", "Toggle Symbols" },
+          l = { ":Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions, references etc." },
+          L = { ":Trouble loclist toggle<cr>", "Location List" },
+          Q = { ":Trouble qflist toggle<cr>", "Quickfix List" },
         },
         -- "/" = "Toggle comment (line or visual block)" -- See comment.lua
       },

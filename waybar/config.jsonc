@@ -7,16 +7,11 @@
     "spacing": 2, // Gaps between modules (px)
     "mode": "hide",
     // "start_hidden": true,
-    "modules-left": [
-        "hyprland/workspaces"
-        // "hyprland/mode",
-        // "hyprland/scratchpad",
-        // "custom/media"
+    "modules-left": [ 
+        "hyprland/window"
     ],
-    // "modules-center": [
-        // "hyprland/window"
-    // ],
-    "modules-right": [
+    "modules-center": [
+        "hyprland/workspaces",
         // "mpd",
 
         // "idle_inhibitor",
@@ -35,6 +30,8 @@
         // "custom/power"
         "clock"
     ],
+    // "modules-right": [
+    // ],
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -103,7 +100,7 @@
     "network": {
         // "interface": "wlp2*",
         "format": "{ifname}",
-        "format-wifi": "  {signalStrength}% {essid}",
+        "format-wifi": "   {signalStrength}% {essid}",
         "format-ethernet": "  {ifname}",
         "format-disconnected": " ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",

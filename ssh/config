@@ -8,3 +8,10 @@ Host cumulus
   # IdentitiesOnly yes
   # IdentityFile ~/.ssh/id_ed25519_lkingland.pub
 
+Host remarkable
+  Hostname 192.168.34.35
+  User root
+  Port 22
+  IdentityFile ~/.ssh/id_ed25519
+
+

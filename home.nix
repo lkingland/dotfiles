@@ -32,6 +32,8 @@
 
     ".config/foot/foot.ini".source = foot/foot.ini;
 
+    ".config/ghostty/config".source = ghostty/config;
+
     ".config/git/config".source = git/config;
     ".config/git/ignore".source = git/ignore;
 

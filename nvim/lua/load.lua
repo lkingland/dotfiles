@@ -7,6 +7,7 @@
 ---------------------------
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
+  print("git clone folke/lazy.nvim")
   vim.fn.system {
     'git',
     'clone',
@@ -27,12 +28,19 @@ vim.opt.rtp:prepend(lazypath)
 
 -- To Load Plugins Individually instead, use (making it easy to disable):
 require('lazy').setup({
-  require('plugins.aerial'),
+  -- require('plugins.copilot'),
+  require('plugins.noice'),
+  require('plugins.notify'),
+  -- require('plugins.tokyonight'),
+  -- require('plugins.onedark'),
+  --
   require('plugins.catppuccin'),
-  -- require('plugins.chatgpt'),
+  
+  require('plugins.aerial'),
+  -- require('plugins.evergarden'),
+  require('plugins.chatgpt'),
   require('plugins.cmp'),
   require('plugins.comment'),
-  -- require('plugins.copilot'),
   require('plugins.dap'),
   require('plugins.dap-go'),
   require('plugins.dap-python'),
@@ -44,14 +52,10 @@ require('lazy').setup({
   require('plugins.indent-blankline'),
   require('plugins.init'),
   require('plugins.lspconfig'),
-  -- require('plugins.lualine'),
-  -- require('plugins.noice'),
-  -- require('plugins.notify'),
+  require('plugins.lualine'),
   require('plugins.obsidian'),
-  -- require('plugins.onedark'),
   require('plugins.telescope'),
   require('plugins.tmux-navigator'),
-  -- require('plugins.tokyonight'),
   require('plugins.tree'),
   require('plugins.treesitter'),
   require('plugins.trouble'),

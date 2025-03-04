@@ -27,7 +27,7 @@ return {
       -- General/Global Mappings and Behavioral Mods --
       -------------------------------------------------
       { "<leader>?", ":WhichKey<cr>", desc = "Keymaps" },
-      { "<C-s>", ":w<cr>", desc = "Save", mode = { "i", "n", "v" } },
+      { "<C-s>", "<Esc>:w<cr>", desc = "Save", mode = { "i", "n", "v" } },
       { "QQ", ":q!<cr>", desc = "Quit (force)", mode = { "n" } },
       { "<S-Tab>", "<C-^>", desc = "Toggle Previous Buffer", mode = { "i", "n", "v" }, noremap=True, silent=True },
       { "<A-Tab>", ":wincmd p<cr>", desc = "Toggle Previous Window", mode = { "i", "n", "v" }, noremap=True, silent=True },
@@ -85,20 +85,21 @@ return {
       -----------
       -- Debug --
       -----------
-      { "<leader>d", group = "Debug" },
-      { "<leader>db", function() dap.toggle_breakpoint() end, desc = "Breakpoint Toggle" },
-      { "<leader>dc", function() dap.continue() end, desc = "Continue" },
-      { "<leader>df", function() dapui.sidebar(dapui.frames).toggle() end, desc = "Toggle Frames (call stack)" }, -- NOTE: can also: dapui.centered_float(widgets.frames)
-      { "<leader>dh", function() dapui.hover() end, desc = "Hover" },
-      { "<leader>di", function() dap.step_into() end, desc = "Into" },
-      { "<leader>dl", function() dap.run_last() end, desc = "Last (rerun)" },
-      { "<leader>dm", function() dap.set_breakpoint(nil, nil, vim.fn.input('[m]essage: ')) end, desc = "Breakpoint with message" },
-      { "<leader>do", function() dap.step_over() end, desc = "Over" },
-      { "<leader>dp", function() dapui.preview() end, desc = "Preview" },
-      { "<leader>dr", function() dap.repl.open() end, desc = "Toggle Repl" },
-      { "<leader>ds", function() dapui.sidebar(dapui.scopes).toggle() end, desc = "Toggle Scopes (variables)" },
-      { "<leader>du", function() dap.step_out() end, desc = "Up / out" },
-      { "<leader>dx", function() dap.terminate() end, desc = "Exit (terminate)" },
+      { ",d", group = "Debug" },
+      { ",db", function() dap.toggle_breakpoint() end, desc = "Breakpoint Toggle" },
+      { ",dc", function() dap.continue() end, desc = "Continue" },
+      { ",df", function() dapui.sidebar(dapui.frames).toggle() end, desc = "Toggle Frames (call stack)" }, -- NOTE: can also: dapui.centered_float(widgets.frames)
+      { ",dh", function() dapui.hover() end, desc = "Hover" },
+      { ",di", function() dap.step_into() end, desc = "Into" },
+      { ",dl", function() dap.run_last() end, desc = "Last (rerun)" },
+      { ",dm", function() dap.set_breakpoint(nil, nil, vim.fn.input('[m]essage: ')) end, desc = "Breakpoint with message" },
+      { ",do", function() dap.step_over() end, desc = "Over" },
+      { ",dp", function() dapui.preview() end, desc = "Preview" },
+      { ",dr", function() dap.repl.open() end, desc = "Toggle Repl" },
+      { ",ds", function() dapui.sidebar(dapui.scopes).toggle() end, desc = "Toggle Scopes (variables)" },
+      { ",du", function() dap.step_out() end, desc = "Up / out" },
+      { ",dx", function() dap.terminate() end, desc = "Exit (terminate)" },
+      --- see dap-go.lua for Go-specific bindings dt and dr
 
       -- Language-Specific Keys
       -- NOTE: language-specific implementations are loaded in individual
@@ -128,7 +129,7 @@ return {
       -------------
       { "<leader>h",  group = "Harpoon" },
       { "<leader>ha", function() ha.add_file() end, desc = "Add file to Harpoon" },
-      { "<leader>hl", function() haui.toggle_quick_menu() end, desc = "List Entries" },
+      { "<leader>hh", function() haui.toggle_quick_menu() end, desc = "List Entries" },
       { "<A-1>", function() haui.nav_file(1) end, desc = "Goto 1" },
       { "<A-2>", function() haui.nav_file(2) end, desc = "Goto 2" },
       { "<A-3>", function() haui.nav_file(3) end, desc = "Goto 3" },

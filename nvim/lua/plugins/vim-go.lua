@@ -5,7 +5,7 @@ return {
     require("which-key").add({
       { ",", group = "+Code" },
       { ",s", ":GoAlternate<cr>", desc = "Switch to Alternate" },
-      { ",b", ":w<bar>GoBuild<cr>", desc = "[b]uild" },
+      { ",b", ":w<bar>GoBuild<cr>", desc = "[b]uild",  silent=True },
       { ",r", ":GoRun<cr>", desc = "[r]un" },
 
       { ",c", group = "+Coverage" },

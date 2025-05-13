@@ -1,6 +1,5 @@
+font-family = "JetBrains Mono"
 background = 000000
-background-opacity = 0
-cursor-style-blink = true
-mouse-hide-while-typing = true
-window-inherit-font-size = true
-window-decoration = false
+theme = vesper
+font-size = 18
+quit-after-last-window-closed = true

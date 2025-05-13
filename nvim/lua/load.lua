@@ -38,7 +38,7 @@ require('lazy').setup({
   
   require('plugins.aerial'),
   -- require('plugins.evergarden'),
-  require('plugins.chatgpt'),
+  -- require('plugins.chatgpt'),
   require('plugins.cmp'),
   require('plugins.comment'),
   require('plugins.dap'),

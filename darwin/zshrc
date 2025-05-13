@@ -34,11 +34,6 @@ alias copy='wl-copy'
 alias paste='wl-paste'
 alias mime='xdg-mime'
 
-# Eza
-alias l="eza -l --icons --git -a"
-alias lt="eza --tree --level=2 --long --icons --git"
-alias ltree="eza --tree --level=2  --icons --git"
-
 # Bitwarden Unlock:  populates ~/.bw-session
 # bw lock is called on system lock.
 alias bw-unlock='bw unlock --raw > ~/.bw-session'
@@ -57,10 +52,11 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 # TODO: is this needed for every git command above?
 
 # systemd
-alias sc="systemctl"
-alias scu="systemctl --user"
-alias jc="journalctl --output=cat"
-alias jcu="journalctl --output=cat --user"
+# TODO(darwin): Update to darwin equivalents
+# alias sc="systemctl"
+# alias scu="systemctl --user"
+# alias jc="journalctl --output=cat"
+# alias jcu="journalctl --output=cat --user"
 
 # git
 alias ga='git add'
@@ -107,11 +103,12 @@ setopt HIST_REDUCE_BLANKS
 # Prompt
 # TODO: source whole repo to avoid symlink?
 # -------------------------
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-source $ZDOTDIR/.p10k.zsh
-source ~/src/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme
+# TODO(darwin): Update to the Darwin equivalent of p10k
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+# source $ZDOTDIR/.p10k.zsh
+# source ~/src/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme
 
 # -------------------------
 # Fuzzy-finder (fzf)

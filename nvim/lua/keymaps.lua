@@ -16,6 +16,14 @@ return {
       preset = "modern",
       icons = {
         mappings = false,
+      },
+      triggers = {
+        { "<auto>", mode = "nxsot" },
+      },
+      disable = {
+        ft = {},
+        bt = {},
+        keys = { "d" },  -- Disable WhichKey for 'd' to allow smooth dd deletion
       }
     })
     -- TODO:  Potentially broken mappings in:
@@ -28,6 +36,7 @@ return {
       -------------------------------------------------
       { "<leader>?", ":WhichKey<cr>", desc = "Keymaps" },
       { "<C-s>", "<Esc>:w<cr>", desc = "Save", mode = { "i", "n", "v" } },
+      { "<C-q>", ":q<cr>", desc = "Quit", mode = { "i", "n", "v" } },
       { "QQ", ":q!<cr>", desc = "Quit (force)", mode = { "n" } },
       { "<S-Tab>", "<C-^>", desc = "Toggle Previous Buffer", mode = { "i", "n", "v" }, noremap=True, silent=True },
       { "<A-Tab>", ":wincmd p<cr>", desc = "Toggle Previous Window", mode = { "i", "n", "v" }, noremap=True, silent=True },
@@ -92,21 +101,20 @@ return {
       { ",dh", function() dapui.hover() end, desc = "Hover" },
       { ",di", function() dap.step_into() end, desc = "Into" },
       { ",dl", function() dap.run_last() end, desc = "Last (rerun)" },
-      { ",dm", function() dap.set_breakpoint(nil, nil, vim.fn.input('[m]essage: ')) end, desc = "Breakpoint with message" },
+      -- { ",dl", desc = "Retry Last" },  -- TODO: Is this redundant with dap.run_last?
+      { ",dm", desc = "Test Method" }, -- Currently Python only
+      -- { ",dm", function() dap.set_breakpoint(nil, nil, vim.fn.input('[m]essage: ')) end, desc = "Breakpoint with message" },
       { ",do", function() dap.step_over() end, desc = "Over" },
       { ",dp", function() dapui.preview() end, desc = "Preview" },
       { ",dr", function() dap.repl.open() end, desc = "Toggle Repl" },
       { ",ds", function() dapui.sidebar(dapui.scopes).toggle() end, desc = "Toggle Scopes (variables)" },
+      { ",dt", desc = "Test This" },   -- Currently Go only
       { ",du", function() dap.step_out() end, desc = "Up / out" },
       { ",dx", function() dap.terminate() end, desc = "Exit (terminate)" },
       --- see dap-go.lua for Go-specific bindings dt and dr
-
       -- Language-Specific Keys
       -- NOTE: language-specific implementations are loaded in individual
       -- files (dap-go.lua, dap-python.lua etc).  Just labels here.
-      { "<leader>dt", desc = "Test This" },   -- Currently Go only
-      { "<leader>dm", desc = "Test Method" }, -- Currently Python only
-      { "<leader>dr", desc = "Retry Last" },  -- TODO: Is this redundant with dap.run_last?
 
       ---------
       -- Git --
@@ -179,7 +187,8 @@ return {
       { "<leader>ti", ":IBLToggle<cr>", desc = "Indentation Lines" },
       { "<leader>tgs", ":Gitsigns toggle_signs<cr>", desc = "Git Signs" },
       { "<leader>tgw", ":Gitsigns toggle_word_diff<cr>", desc = "Git Word-level Diff" },
-      { "<leader>tgb", ":Gitsigns toggle_line_blame<cr>", desc = "Git Blame (line)" },
+      { "<leader>tgb", ":Git blame<cr>", desc = "Git Blame" },
+      { "<leader>tgl", ":Gitsigns toggle_current_line_blame<cr>", desc = "Git Line-level Blame" },
 
       -------------
       -- Trouble --

@@ -37,6 +37,8 @@ require('lazy').setup({
   require('plugins.catppuccin'),
   
   require('plugins.aerial'),
+  require('plugins.auto-session'),
+  require('plugins.beancount'),
   -- require('plugins.evergarden'),
   -- require('plugins.chatgpt'),
   require('plugins.cmp'),

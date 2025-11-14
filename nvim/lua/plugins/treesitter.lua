@@ -11,9 +11,10 @@ return {
   config = function()
     vim.defer_fn(function() -- defer for faster startup
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 
+        ensure_installed = {
           'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript',
           'typescript', 'vimdoc', 'vim', 'bash', 'markdown', 'markdown_inline',
+          'beancount', 'kotlin',
         },
         highlight = { enable = true },
         indent = { enable = true },

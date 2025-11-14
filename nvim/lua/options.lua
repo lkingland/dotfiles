@@ -10,7 +10,9 @@ vim.o.hlsearch       = true -- Highlight on search
 vim.o.ignorecase     = true -- Deafult to case insensitive searches
 vim.o.incsearch      = true -- Incremental Search
 vim.o.mouse          = 'a' -- Enable mouse
+vim.o.number         = true -- Show line numbers
 vim.o.numberwidth    = 2 -- only reserve two cols for line numbers
+vim.o.relativenumber = true -- Relative line numbering
 vim.o.scrolloff      = 8 -- Scroll when 8 lines remaining
 vim.o.showmatch      = true -- Show matching bracket
 vim.o.showmode       = false -- no modeline in insert or visual mode
@@ -25,6 +27,7 @@ vim.o.undoreload     = 100000 -- 10x the default
 vim.o.updatetime     = 250 -- Decrease update time
 vim.o.wildmode       = 'list:longest,full' -- only autocmplete on double-Tab
 vim.wo.signcolumn    = 'yes' --  Always show sign column (current window)
+vim.opt.laststatus   = 3 -- Suggested by avante
 
 -- Mapleader
 vim.g.mapleader      = ' '
@@ -63,6 +66,20 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" ..
 vim.opt_local.spell = true
 vim.opt_local.spelllang = { "en_us" }
 
+-- Go (golang)
+vim.g.go_test_show_name = 1
+vim.g.go_test_timeout= '20s'
+vim.g.go_highlight_types = 1
+vim.g.go_highlight_fields = 1
+vim.g.go_highlight_functions = 1
+vim.g.go_highlight_function_calls = 1
+vim.g.go_highlight_operators = 1
+vim.g.go_highlight_extra_types = 1
+vim.g.go_highlight_build_constraints = 1
+vim.g.go_highlight_generate_tags = 1
+
+
+
 -- TODO
 -- ---------------------
 
@@ -70,7 +87,11 @@ vim.opt_local.spelllang = { "en_us" }
 vim.o.undodir = os.getenv("HOME") .. "/.vimundo" 
 
 -- Consider line continuation:
--- vim.o.whichwrap =  "b,s,h,l,<,>,[,]" 
+-- vim.o.whichwrap =  "b,s,h,l,<,>,[,]"
+
+-- Enable comment continuation
+vim.opt.formatoptions:append("r") -- Continue comments when pressing Enter in Insert mode
+vim.opt.formatoptions:append("o") -- Continue comments when pressing o or O in Normal mode 
 
 -- check relying on undotree entirely:
 -- vim.o.swapfile = false

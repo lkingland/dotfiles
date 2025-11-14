@@ -5,7 +5,7 @@ return {
     require("which-key").add({
       { ",", group = "+Code" },
       { ",s", ":GoAlternate<cr>", desc = "Switch to Alternate" },
-      { ",b", ":w<bar>GoBuild<cr>", desc = "[b]uild",  silent=True },
+      { ",b", ":w<bar>GoBuild<cr>", desc = "[b]uild", silent=true },
       { ",r", ":GoRun<cr>", desc = "[r]un" },
 
       { ",c", group = "+Coverage" },
@@ -13,11 +13,11 @@ return {
       { ",cb", ":GoCoverageBrowser<cr>", desc = "[b]rowse coverage" },
 
       { ",t", group = "+Test" },
-      { ",tt", ":w<bar>:GoTest<cr>", desc = "[t]est all" },
-      { ",tf", ":w<bar>:GoTestFunc<cr>", desc = "this [f]unction" },
-      { ",ti", ":w<bar>:GoTestFile<cr>", desc = "this f[i]le" },
-      { ",tc", ":w<bar>:GoTestCompile<cr>", desc = "test [c]ompile" },
-      { ",tm", ":w<bar>:GoMetaLinter<cr>", desc = "[m]etalinter" },
+      { ",tt", ":w<bar>:GoTest<cr>", desc = "[t]est all", silent=true },
+      { ",tf", ":w<bar>:GoTestFunc<cr>", desc = "this [f]unction", silent=true },
+      { ",ti", ":w<bar>:GoTestFile<cr>", desc = "this f[i]le", silent=true },
+      { ",tc", ":w<bar>:GoTestCompile<cr>", desc = "test [c]ompile", silent=true },
+      { ",tm", ":w<bar>:GoMetaLinter<cr>", desc = "[m]etalinter", silent=true },
 
       { ",x", group = "+Docs" },
       { ",xi", ":GoDoc<cr>", desc = "[i]nline docs" },

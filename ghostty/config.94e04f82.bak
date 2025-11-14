@@ -3,4 +3,3 @@ background = 000000
 theme = vesper
 font-size = 18
 quit-after-last-window-closed = true
-keybind = shift+enter=text:\n

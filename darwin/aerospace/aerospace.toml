@@ -142,6 +142,10 @@ run = 'layout floating'
 
     # Groups (using join mode)
     alt-g = 'mode join'
+    
+    # Quick stack/unstack
+    # NOTE: incompatible with "enable-normalization-flatten-contaienrs
+    # alt-shift-s = 'split opposite'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     alt-1 = 'workspace 1'

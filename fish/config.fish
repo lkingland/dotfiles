@@ -15,6 +15,8 @@ set -gx GIT_EXTERNAL_DIFF difft
 # -----
 fish_add_path ~/go/bin
 fish_add_path ~/src/github.com/lkingland/sh
+fish_add_path /opt/podman/bin
+fish_add_path /opt/homebrew/opt/openjdk/bin
 
 # XDG
 if not set -q XDG_CONFIG_HOME
@@ -82,6 +84,46 @@ function ds --wraps "git show"; git -c diff.external=difft show --ext-diff $argv
 # "difftastic": git diff using difftastic
 function dt --wraps "git diff"; git -c diff.external=difft diff $argv; end
 
+# jj
+# Current changes, a little about remote branches, and the trunk:
+function jll; jj log -r '@ | ancestors(remote_bookmarks().., 2) | trunk()'; end
+
+# Screencasts
+# Add to ~/.config/fish/config.fish or ~/.config/fish/functions/ghostty-setup-active.fish
+function screencast-setup-window --description 'Set active Ghostty window to 16pt font and 1920x1080'
+    osascript -e '
+    tell application "System Events"
+        if not (exists process "Ghostty") then
+            return "Ghostty not running"
+        end if
+        
+        set frontApp to name of first application process whose frontmost is true
+        if frontApp is not "Ghostty" then
+            tell application "Ghostty" to activate
+            delay 0.2
+        end if
+        
+        tell application process "Ghostty"
+            set activeWin to front window
+            
+            -- Set font size to 16
+            keystroke "0" using {command down}
+            delay 0.5
+            repeat 5 times
+                keystroke "=" using {command down}
+                delay 0.1
+            end repeat
+
+            -- Resize active window only
+            tell activeWin
+                -- Slightly beyon 1920x1080 for clipping
+                set size to {1920, 1110}
+                set position to {0, 25}
+            end tell
+        end tell
+    end tell
+    '
+end
 
 # Initializers
 # ------------

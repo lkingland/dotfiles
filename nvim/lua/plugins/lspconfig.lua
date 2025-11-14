@@ -129,6 +129,14 @@ return {
       end,
     })
 
+    -- Format on save for beancount files
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      pattern = '*.{bean,beancount}',
+      callback = function()
+        vim.lsp.buf.format({ async = false })
+      end,
+    })
+
     -- Change diagnostic symbols in the sign column (gutter)
     -- if vim.g.have_nerd_font then
     --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
@@ -171,6 +179,12 @@ return {
       ts_ls = {},
       svelte = {},
       yamlls = {},
+      kotlin_language_server = {},
+      beancount = {
+        init_options = {
+          journal_file = vim.fn.expand("~/src/kingland.io/pta/main.beancount"), -- Update this path
+        },
+      },
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },

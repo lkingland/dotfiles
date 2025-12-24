@@ -1,5 +1,5 @@
 return {
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
   version = '*',  -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = 'markdown',
@@ -32,16 +32,9 @@ return {
         },
       },
       disable_frontmatter = true,
-      completion = {
-        -- TODO: The following are deprecated and I need to use
-        -- wiki_link_func instead
-        -- prepend_note_id = false,
-        -- prepend_note_path = false,
-        -- use_path_only = true,
-      },
+      legacy_commands = false,
       follow_url_func = function(url)
-        vim.fn.jobstart({'xdg-open', url})
-        -- vim.fn.jobstart({"open", url})  -- Mac OS
+        vim.fn.jobstart({'open', url})
       end,
       note_id_func = function(title)
         return title

@@ -1,5 +1,18 @@
 ServerAliveInterval 30
 
+Host aurora
+    # SSH Agent Forwarding
+    RemoteForward /run/user/1000/gnupg/S.gpg-agent.ssh.remote /Users/drekar/.gnupg/S.gpg-agent.ssh
+
+    # GPG Agent Forwarding
+    RemoteForward /run/user/1000/gnupg/S.gpg-agent.remote /Users/drekar/.gnupg/S.gpg-agent
+
+    # Cleanup
+    StreamLocalBindUnlink yes
+
+    # Override "hostbound"
+    PubkeyAuthentication unbound
+
 Host cumulus
   # Obtained with gpgconf --list-dirs agent-socket (remote)
   #           and gpgconf --list-dirs agent-extra-socket (local)
